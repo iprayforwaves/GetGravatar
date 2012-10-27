@@ -11,16 +11,19 @@
 
 @implementation GetGravatar
 
-+ (NSURL*)gravatarURL:(NSString*)aEmail
++ (NSURL*)gravatarURL:(NSString*)aEmail:(NSString*)imageSize:(NSString*)defaultImage
 {
     if (aEmail)
     {
         
         NSString *email = [[aEmail stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] lowercaseString];
-        
         NSString *emailMD5 = [GetGravatar md5HexDigest:email];
         
-        NSString *gravatarString = [NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@", emailMD5];
+        if(!imageSize) imageSize = @"80";
+        
+        if(!defaultImage) defaultImage = @"mm";
+        
+        NSString *gravatarString = [NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=%@&d=%@", emailMD5, imageSize, defaultImage];
         
         //NSLog(@"%@", gravatarString);
         
