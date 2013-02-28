@@ -11,7 +11,7 @@
 
 @implementation GetGravatar
 
-+ (NSURL*)gravatarURL:(NSString*)aEmail:(NSString*)imageSize:(NSString*)defaultImage
++ (NSURL*)gravatarURLForEmail:(NSString*)aEmail size:(NSString*)size default:(NSString*)defaultImage
 {
     if (aEmail)
     {
