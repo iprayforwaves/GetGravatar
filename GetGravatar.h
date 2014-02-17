@@ -10,7 +10,7 @@
 
 @interface GetGravatar : NSObject
 
-+ (NSURL*)gravatarURL:(NSString*)aEmail:(NSString*)size:(NSString*)defaultImage;
++ (NSURL*)gravatarURLForEmail:(NSString*)aEmail size:(NSString*)imageSize default:(NSString*)defaultImage;
 + (NSString*)md5HexDigest:(NSString*)input;
 
 @end
