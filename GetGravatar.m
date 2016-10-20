@@ -13,6 +13,11 @@
 
 + (NSURL*)gravatarURLForEmail:(NSString*)aEmail size:(NSString*)imageSize default:(NSString*)defaultImage
 {
+    [GetGravatar gravatarURLForEmail:aEmail size:imageSize default:defaultImage secureTransfer:false];
+}
+
++ (NSURL*)gravatarURLForEmail:(NSString*)aEmail size:(NSString*)imageSize default:(NSString*)defaultImage secureTransfer:(BOOL)secure
+{
     if (aEmail)
     {
 
@@ -23,7 +28,8 @@
 
         if(!defaultImage) defaultImage = @"mm";
 
-        NSString *gravatarString = [NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=%@&d=%@", emailMD5, imageSize, defaultImage];
+        NSString *transport = secure ? @"https" : @"http";
+        NSString *gravatarString = [NSString stringWithFormat:@"%@://www.gravatar.com/avatar/%@?s=%@&d=%@", transport, emailMD5, imageSize, defaultImage];
 
         return [NSURL URLWithString:gravatarString];
     }
