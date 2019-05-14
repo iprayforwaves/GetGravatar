@@ -13,7 +13,7 @@
 
 + (NSURL*)gravatarURLForEmail:(NSString*)aEmail size:(NSString*)imageSize default:(NSString*)defaultImage
 {
-    [GetGravatar gravatarURLForEmail:aEmail size:imageSize default:defaultImage secureTransfer:false];
+    return [GetGravatar gravatarURLForEmail:aEmail size:imageSize default:defaultImage secureTransfer:false];
 }
 
 + (NSURL*)gravatarURLForEmail:(NSString*)aEmail size:(NSString*)imageSize default:(NSString*)defaultImage secureTransfer:(BOOL)secure
